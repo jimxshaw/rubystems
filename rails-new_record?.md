@@ -46,10 +46,10 @@ d. the object its called on
 
 (maybe another dependent question) Given that no records have been created in some table, say Narrators, what is the error message in Rails 5.1 that the `#find` method would return?
 
-a. ActiveRecord::IdNotFound: Couldn't find Narrator with 'id'=1
-b. ActiveRecord::ObjectNotFound: Couldn't find Narrator with 'id'=1
-c. ActiveRecord::RecordNotFound: Couldn't find Narrator with 'id'=1
-d. ActiveError::InvalidRecord: 'id'=1 doesn't exist for Narrator
+a. ActiveError::IdNotFound: Couldn't find Narrator with 'id'=1
+b. ActiveError::InvalidRecord: Couldn't find Narrator with 'id'=1
+c. ActiveRecord::ObjectNotFound: Couldn't find Narrator with 'id'=1
+d. ActiveRecord::RecordNotFound: Couldn't find Narrator with 'id'=1
 
 ...
 
