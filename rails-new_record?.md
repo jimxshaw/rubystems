@@ -35,4 +35,22 @@ b. False
 
 ...
 
+Dependent question on the previous (as a series): The Model.find(:id) and Model.find_by_id(:id) indeed produce the same SQL query. But while the `#find` method will return either an object or an error, the `#find_by_id` method will return either an object or *what*?
+
+a. nil
+b. true
+c. false
+d. the object its called on
+
+...
+
+(maybe another dependent question) Given that no records have been created in some table, say Narrators, what is the error message in Rails 5.1 that the `#find` method would return?
+
+a. ActiveRecord::IdNotFound: Couldn't find Narrator with 'id'=1
+b. ActiveRecord::ObjectNotFound: Couldn't find Narrator with 'id'=1
+c. ActiveRecord::RecordNotFound: Couldn't find Narrator with 'id'=1
+d. ActiveError::InvalidRecord: 'id'=1 doesn't exist for Narrator
+
+...
+
 The above illustrate more ways to create multiple choice questions. Asking a true/false question is not the same as asking if an expression will evaluate to `true` or `false`.
