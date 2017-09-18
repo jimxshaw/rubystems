@@ -1,3 +1,7 @@
+# Rails Question Bank
+
+## Rails Command Line
+
 How do you create a Rails application called MyApp from the command line with a MySQL database?
 - rails new my_app -d mysql
 
@@ -105,3 +109,81 @@ If you manually delete your schema.rb file, which two commands will regenerate i
 
 What command loads your sample data into your database?
 - `rails db:seed`
+
+## Rails CRUD
+
+What's the alias for `#update_attribute()` and `#update_attributes()`?
+- `#update`
+
+How would you set attr values line by line?
+- `product.attr = "value"`
+
+How would you set attr values via hash?
+- `product = Product.new(attr: "value", attr2: "value"); product.save`
+
+How would you set attr values via block?
+  ```ruby
+  product = Product.create do |p|
+    p.attr = "value"
+    p.attr2 = "value"
+  end
+  ```
+
+The `#update_attribute` method uses comma notation, right?
+- `product.update_attribute(:attr, "value")`
+
+The `#update_attributes` method uses hash notation, right?
+- `product.update_attributes(attr: "value")`
+
+What's the best way to update all attrs in a table?
+- Use the `.update_all()` class method, like `Product.update_all(attr: "value")`
+
+True or false: class methods will still run callbacks and validations.
+- False
+
+What is the best method to remove a record from the database?
+- `product.destroy`
+
+What's the difference between `#destroy` instance method and the `.destroy` class method?
+- `.destroy` is called against the model class, eg `Product.destroy([:id])`
+
+What method will destroy all records?
+- `Product.destroy_all`
+
+What's the difference between `.destroy` and `.delete`?
+- `.delete` doesn't run callbacks or validations. Just executes SQL.
+
+How do you manually update a record's "updated_at" value?
+- `@product.touch`; useful for child objects, like upload an image and touch the associated record; good for callbacks
+
+What is the default attribute that `product.touch` will update?
+- updated_at
+
+How would you `touch` a different attribute?
+- `product.touch(:attr)`
+
+How do you toggle a boolean attribute?
+- `product.toggle(:attr)`
+
+Does `#toggle` persist changes to the database?
+- False
+
+How would you persist a toggle?
+- `product.toggle!(:attr)`
+
+How would you increment an attribute of type integer? Instead of @p.attr = @p.attr + 1
+- `@p.increment(:attr, 1)` or leave off the 1 for default "by 1"
+
+How would you increment and persist to database?
+- Use the bang notation.
+
+What's the opposite of `#increment`?
+- `@p.decrement(:attr)`
+
+Should you use #increment and #decrement for associated objects?
+- False
+
+What should you use instead for associated objects?
+- Cache counter
+
+## Dirty Objects
