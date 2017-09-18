@@ -71,6 +71,22 @@ Given the following output after running `rails db:migrate:status`:
 |  down  |  20170918061614 | Add foreign key to products
 
 (cont'd from above), how would you only run the "Create styles" migration?
-- `rails db:migrate:up VERSION=20170918061514
+- `rails db:migrate:up VERSION=20170918061514`
 
+How would you migrate down incrementally one migration_id at a time? Take the same table above, for example. What command could you use instead of `rails db:migrate:down VERSION=20170918052723`?
+- `rails db:rollback`
 
+How would you generate a migration to revert "Add style to products"?
+- `rails generate migration RevertAddStyleToProducts`
+
+There are two lines of code required in the revert migration file, one outside the migration class, and one inside the #change method. What would they be for the migration you just generated?
+- `require_relative '20170918052723_add_style_to_products'` and `revert AddStyleToProducts`
+
+In what Rails version did the shortcut `CreateJoinTable<TableA><TableB>` come into existence?
+- dunno, look up
+
+What's the full Rails generation for creating an inner join table migration?
+- `rails generate migration CreateJoinTableTableATableB table_a table_b`
+
+How can you suppress terminal output when running a migration?
+- `rails db:migrate VERBOSE=false`
