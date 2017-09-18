@@ -90,3 +90,18 @@ What's the full Rails generation for creating an inner join table migration?
 
 How can you suppress terminal output when running a migration?
 - `rails db:migrate VERBOSE=false`
+
+Which command looks at the database and dumps it into Ruby format for you to see?
+- `rails db:schema:dump`
+
+How would you load from the database into Rails the database schema in the SQL lang?
+- `rails db:structure:dump`
+
+What file is created from structure dump?
+- `structure.sql`
+
+If you manually delete your schema.rb file, which two commands will regenerate it?
+- `rails db:migrate` and `rails db:schema:dump`
+
+What command loads your sample data into your database?
+- `rails db:seed`
