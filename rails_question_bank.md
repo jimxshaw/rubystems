@@ -30,3 +30,11 @@ Running `rails generate migration AddQtySoldToProducts qty_sold:integer` will cr
 - add_column :qty_sold, :products, :integer
 - add_column :products, qty_sold: :integer
 
+On a generation command, what additional line of code is produced in your migration file when running `rails generate migration AddRefNumToProducts ref_num:string:index`?
+- add_index :products, :ref_num
+
+What single line of code is produced in your migration's #change method when running `rails generate migration AddStyleToProducts style:references`
+- add_reference :products, :style, foreign_key: true
+
+Before Rails version X.y.z, the same migration above would produce what code instead of the newer `add_reference`?
+- don't know; need to look up
