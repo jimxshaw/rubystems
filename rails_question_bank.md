@@ -187,3 +187,45 @@ What should you use instead for associated objects?
 - Cache counter
 
 ## Dirty Objects
+
+How would you check if an object has been changed?
+- `product.changed?`
+
+How would you list the changed attributes?
+- `product.changed`
+
+How would you list the changed attributes with their old and new value?
+- `product.changes`
+
+How would you just see the changed attributes with their old value before they were changed?
+- `product.changed_attributes`
+
+How would you filter by an attribute to determine if it has been changed?
+- `product.name_changed?`
+
+How would you filter by an attribute and see its old and new value?
+- `product.name_change`
+
+If `product.name` gets the current value, what command gets the changed value for attribute, :name?
+- `product.name_was`
+
+How can you check if an attribute's value was changed from a specific old value?
+- `product.name_changed?(from: "old_value")` # => bool
+
+How can you check if an attribute's value was changed to a specific value?
+- `product.name_changed?(to: "new_value")` # => bool
+
+How can you check the above two changes?
+- `product.name_changed?(from: "old_value", to: "new_value")`
+
+What's the Rails helper method equivalent to `product.name = product.name_was`?
+- `product.restore_attributes`
+
+Will `product.restore_attributes` work after a record has been saved to the database?
+- false
+
+How can you see what was in the databases before, and what's there now?
+- `product.previous_changes`
+
+## Query Interface
+
