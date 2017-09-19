@@ -346,3 +346,23 @@ How would you select all products with a category whose attribute `:name` has a 
 What would be the equivalent broken into two statements, given the first being `category = Category.find_by_name("Furniture")`?
 - `products = Product.where(category_id: category.id)`
 
+How would you only show distinct values given duplication from an inner join?
+- `Category.joins(:products).distinct.pluck(:name)`
+
+What's the synonym or alias for the `.distinct` method?
+- `.uniq`
+
+The `.distinct` method can be called anywhere in the statement except for which position?
+- the last position
+
+How would you include records in a join where the "right" table doesn't have a related "left" record?
+- left outer join
+
+How do you preload data in an Active Record query?
+- `.includes()`
+
+What method should you use when combining `.includes().where()`?
+- `.references(:some_model)`
+
+## Delegations
+
