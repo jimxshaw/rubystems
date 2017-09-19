@@ -229,3 +229,62 @@ How can you see what was in the databases before, and what's there now?
 
 ## Query Interface
 
+What is the Rails helper equivalent to `Product.where(attr: "value").first`?
+- `Product.find_by(attr: "value")`
+
+Something about `Product.find_by_<attr>`
+
+If a record isn't found, how would you initialize or create it in one method?
+- `find_or_initialize_by` and `find_or_create_by`
+  - works best with simple objects
+  
+Will `Product.find_by(attr: 'Value')` return the same thing as `Product.find_by(attr: 'value')?`
+- true
+
+How would you check to see if a record exists?
+- `Product.exists?(attr: 'value')`
+
+Can you use exists? to check if a conditional value?
+- false
+
+How would you check if a single conditional value exists?
+- `Product.where(:attr > 100).any?` returns true if single record matches
+
+How would you check if two or more records match some condition?
+- `Product.where(:attr > 100).many?` true if > 2
+
+Which part of this database call is the scope? `Product.recent.select(:name, :id)`
+- `.recent`
+
+What parameters does the `.select` method take?
+- attributes
+
+What datatype does `.select` return?
+- an array of objects
+
+What datatype does `.pluck(:id)` return?
+- an array of attribute id values
+
+What datatype does `.pluck(:id, :name)` return?
+- an array of arrays containing id and name values
+
+The `.ids` method is short for what?
+- `Product.pluck(:id)`
+
+To run a negative query, what method does `.not` always follow?
+- `.where`
+
+How would you perform a negative query before `.not` was introduced to Rails?
+- `Product.where("name != ?", "Couch")`
+
+What type of parameter does the `.or` method accept?
+- ActiveRelation (query or scope)
+
+Can you scope a different model using `.or`?
+- false
+
+Can you call other methods besides `.where` and `.having` using `.or`?
+- false
+
+
+
