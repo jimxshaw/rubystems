@@ -286,5 +286,63 @@ Can you scope a different model using `.or`?
 Can you call other methods besides `.where` and `.having` using `.or`?
 - false
 
+When dealing with a large record set, what is the term to process them set by set?
+- batching
 
+If `Product.all.each {...}` returns all records and operates on them, what is the equivalent approach in batches?
+- `Product.find_each {...}`
+
+What is the default record set size for the `.find_each` method?
+- 1000
+
+How can you specify the batch size and range?
+- `Product.find_each(batch_size: 100, start: 500, finish: 1000) {...}`
+
+If `.find_each` yields each object to the block, what does `.find_in_batches` yield to the block?
+- The batch itself as an array
+
+In what version was `.in_batches` introduced?
+- Rails 5
+
+What does `.in_batches` yield to its code block?
+- The batch itself as an ActiveRecord::Relation
+
+If the named scope `scope :active, lambda { where(active: true) }` allows `User.active.all`, how would you define a default (unnamed) scope so that `User.all` produces the same outcome?
+- `default_scope { where(active: true) }`
+
+How would you bypass the default scope?
+- `User.unscoped.all`
+
+How would you remove the "where" clause from an Active Record statement?
+- `Product.unscope(:where).all`
+
+What is the synonym for `.unscope`?
+- `.except`
+
+What is the opposite of `.except`?
+- `.only`
+
+If `products = Product.where(price: 100..200)`, how could you change the where clause in `products`?
+- `products.rewhere(price: 100)`
+
+The clause `.where` is to `.rewhere`, as `.order` is to:
+- `.reorder`
+
+How can you reverse an order clause?
+- `.reverse_order`
+
+What data type must you be careful with using `.rewhere`?
+- String
+
+How do you query an inner join in Active Record for a Category that has many Products?
+- `Category.join(:products).all`
+
+What's the equivalent inverse of the above?
+- `Product.join(:category).all`
+
+How would you select all products with a category whose attribute `:name` has a value of "Furniture"?
+- `products = Product.join(:category).where(categories: { name: "Furniture" })`
+
+What would be the equivalent broken into two statements, given the first being `category = Category.find_by_name("Furniture")`?
+- `products = Product.where(category_id: category.id)`
 
