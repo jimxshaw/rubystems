@@ -406,3 +406,25 @@ How would you handle a delegation where the child instance hasn't been assigned 
 - `delegate :number, to: :product, allow_nil: true`
 
 ## Callbacks
+
+| Create | Update | Destroy
+| ------ | ------ | -------
+| before_validation | before_validation | 
+| VAL | IDA | TION
+| after_validation | after_validation | 
+| before_save | before_save |
+| before_create | before_update | before_destroy
+| DATA | BASE INTER | ACTION
+| after_create | after_update | after_destroy
+| after_save | after_save | 
+| after_commit | after_commit | after_commit
+
+What is a common reason to use a callback method?
+- to set default values
+- update other records
+- perform cleanup or housekeeping tasks
+- send an email or an API call
+
+True of false: indenting private methods is a Ruby common practice?
+- true
+
