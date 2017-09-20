@@ -366,3 +366,43 @@ What method should you use when combining `.includes().where()`?
 
 ## Delegations
 
+Given that a product has many SKUs, if a user purchases a SKU (type of product with different attrs), how would you define a way to call `sku.price`?
+- `class Sku < ActiveRecord::Base; belongs_to :product; def price; product.price; end...`
+
+How would you use "delegations" to accomplish the same code in the Sku model?
+- `delegate :price, to: :product`
+
+Given the above, what is the shorter way of calling `sku.product.price`?
+- `sku.price`
+
+What if you need to delegate more attributes. How would you define that delegation?
+- `delegate [:price, :launched_at, :discontinued_at], to: :product`
+
+Do the Product attributes need to be defined in the database?
+- No, delegation can work on pure, non-database-connected attributes.
+
+How do you call a delegation, given that `product = Product.first`?
+- `product.prefix`
+
+What SQL statement is executed by the above statement?
+- `SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1`
+
+How would you set a prefix so that calls are more human readable?
+- `delegate :number, to: :product, prefix: true`
+
+How would you call to get the sku number?
+- `sku.product_number`
+
+In the event that both the Product and the Sku model have a `number` attribute, how would you distinguish between the two given that you use delegation on number?
+- Use the `prefix: true` option in your delegation
+
+How would you customize your prefix to not use the default parent Model?
+- `delegate :number, to: :product, prefix: 'style'`
+
+How would you call the Sku number given the customized prefix?
+- `sku.style_number`
+
+How would you handle a delegation where the child instance hasn't been assigned a parent?
+- `delegate :number, to: :product, allow_nil: true`
+
+## Callbacks
