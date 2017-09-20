@@ -498,3 +498,134 @@ How would you call this scoped association?
 If a parent model has more than one child model, and the child models have an identical attribute name, how do you specify the child model you want to scope?
 - `has_many :available_products, lambda { where('inventory > 0') }, class_name: 'Product'`
 
+How would you tell Rails to destroy child records if a parent record is destroyed?
+- `has_many :children, dependent: :destroy`
+
+In what version did `dependent: :destroy` become standard? How would you define dependency in earlier versions?
+- `:dependent => true`
+
+Can you define the destroy dependency in the child model?
+- true
+
+What's the danger of defining dependent destroy in the child?
+- deletes parent record, which could have other children, leaving them orphaned
+
+If the `:destroy` action destroys associated objects, what is the action to delete just the database records?
+- `:delete_all`
+
+How can you set the foreign key values to NULL in the database (nil in the object)?
+- `:nullify`
+
+Do dependency definitions come before or after any scopes in the `has_many` registration?
+- after
+
+True or false: you can define `touch: true` on a `has_many` relationship?
+- false
+
+Given that `touch: true` is defined on a `belongs_to` relationship, what attribute does it touch?
+- `updated_at`
+
+How can you specify a different datetime attribute to be touched?
+- `touch: :products_updated_at`
+
+If you define a custom attribute to be touched, will it also touch the default attribute `updated_at`?
+- true
+
+Will `touch: true` also update the parent's `updated_at` attribute?
+- true
+
+Will `product.increment!(:inventory)` touch the record?
+- false, increment bypasses callbacks
+
+On with side of the parent/child association do you define `counter_cache: true`?
+- `belongs_to`
+
+True or false: the counter_cache is being stored in the child model?
+- false
+
+How do you add the child counter cache to the parent model?
+- `rails generate migration AddProductsCountToCategories products_count:integer`
+
+Is the counter cache stored in the database?
+- false
+
+How can you use counter cache?
+- `category.products.size`
+
+What method do you not want to call with counter cache because it queries the database?
+- `category.products.count`
+
+What method should you use in association with counter cache when removing records?
+- `product.destroy`
+
+How can you set the parent when instantiating a new child?
+- `Product.create(category: category)`
+- `category.products << Product.new(name: 'Cabinet')`
+- `category.products.build(name: 'Cabinet')`
+
+How can you set the parent when instantiating a new child?
+- `category.products.create(name: 'Cabinet')`
+
+How would you build on an association by calling the child first? Effectively setting the parent.
+- `product.build_category(name: 'Kitchen')`
+
+How would you build on an association and persist to database by calling the child first? Effectively setting the parent.
+- `product.create_category(name: 'Kitchen')`
+
+What is a self-referential association?
+- a class with an association back to itself, eg a supervisor with subordinates, who can in turn, be a supervisor
+
+What's an example of a self-referential association?
+```ruby
+class Employee < ActiveRecord::Base
+  belongs_to :supervisor, class_name: 'Employee'
+  has_many :subordinates, class_name: 'Employee', foreign_key: 'supervisor_id'
+end
+```
+
+How do you suppress output to `nil` when executing a code block?
+- `{...}; nil`
+
+How is "single table inheritance" different from "self-referential association"?
+- different classes allow for different behaviors
+
+How do you define single table inheritance?
+- add a column to the table that holds the name of the inherited class
+
+How do you generate a migration to add single table inheritance?
+- `rails generate migration AddTypeToProducts type:string`
+
+How do you generate the model for single table inheritance without a migration?
+- `rails generate model OnlineProducts --parent=Product`
+
+How do you update the `type` attribute by referencing the model it belongs to?
+- `product.update_attribute(:type, 'StoreProduct')` # not using hash notation
+
+How do you know if polymorphic associations exist?
+- one child model belongs_to several parent models
+
+What are common uses for polymorphic associations?
+- images, PDFs, comments
+
+What problem does polymorphic associations solve?
+- multiple foreign key columns on the child model that inherits from multiple parents
+
+What's the naming convention for polymorphic associations?
+- virtual_model-able
+
+If you have a Document model, what two attributes will replace all the foreign keys?
+- `:documentable_id` # integer
+- `:documentable_type` # string
+
+What is the migration shortcut for the above definitions?
+- `t.references :documentable, polymorphic: true, index: true`
+
+What term describes overusing single table inheritance and polymophic associations?
+- "STI-Polymorphic sickness"
+
+How do you define the child relationship in polymorphic association?
+- `class Document; belongs_to :documentable, polymorphic: true`
+
+How do you define the parent relationship in polymorphic associations?
+- `class Product; has_many :documents, as: :documentable`
+- `class PressRelease; has_many :documents, as: :documentable`
