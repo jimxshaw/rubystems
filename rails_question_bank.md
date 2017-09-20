@@ -428,3 +428,47 @@ What is a common reason to use a callback method?
 True of false: indenting private methods is a Ruby common practice?
 - true
 
+If the private method definition is the callback method, what is the public `before_validation ...` called?
+- callback registration method
+
+What does Proc stand for?
+- Process
+
+How would you call a callback method conditionally?
+- `before_validation :add_default_prefix, if: Proc.new { |model| model.prefix.blank? }`
+
+How do you define code to execute before and after an action?
+- around
+
+What must your method include for an "around" callback to work?
+- `yield`
+
+What are the four "around" callbacks?
+- `around_save`
+- `around_create`
+- `around_update`
+- `around_destroy`
+
+Does the following method work with `around_save :say_whats_happening`?
+```ruby
+def say_whats_happening
+  puts "before save"
+  yield
+  puts "after save"
+end
+```
+- true
+
+What are some other callbacks?
+- `after_initialize`
+- `after_find`
+- `after_touch`
+- `after_rollback`
+
+Which methods will skip, or ignore, callbacks?
+- `update_all`, `update`, and `delete_all`
+- `increment` and `decrement`
+- `toggle`
+- `touch`
+
+## Associations
