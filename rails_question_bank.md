@@ -472,3 +472,29 @@ Which methods will skip, or ignore, callbacks?
 - `touch`
 
 ## Associations
+
+What are the five associations in Active Record models?
+- `has_one`
+- `has_many`
+- `belongs_to`
+- `has_and_belongs_to_many`
+- `has_many, :through`
+
+What are the two most commonly used associations?
+- `has_many` and `belongs_to`
+
+Which side of the association contains the foreign key?
+- `belongs_to`
+
+If a Category class `has_many :products`, how would you explicitly define the class name and foreign key in the Product class?
+- `belongs_to :category, class_name: 'Category', foreign_key: 'category_id'`
+
+How would you scope an assocition?
+- `has_many :products, lambda { order(:created_at) }`
+
+How would you call this scoped association?
+- `@category.products`
+
+If a parent model has more than one child model, and the child models have an identical attribute name, how do you specify the child model you want to scope?
+- `has_many :available_products, lambda { where('inventory > 0') }, class_name: 'Product'`
+
