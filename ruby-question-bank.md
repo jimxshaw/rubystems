@@ -3,6 +3,9 @@
 
 ## Getting Started with Ruby
 
+What is the definition of Ruby according to `man ruby`?
+- Interpreted object-oriented scripting language
+
 Who created Ruby?
 - Yukihiro Matsumoto
 
@@ -63,9 +66,6 @@ From the shell, what command will put you into IRB mode?
 What is the return value of `puts 999`?
 - `nil`
 
-In Ruby, is a variable an object?
-- false, acts as a pointer to an object
-
 How do you exit an IRB session?
 - `quit`
 
@@ -77,4 +77,27 @@ How can you open the Ruby documentation from the shell?
 
 What does `ri` stand for?
 - ruby information
+
+## Ruby Object Types
+
+In Ruby, is a variable an object?
+- false, acts like an object, but is really a pointer or representation of an actual object
+
+How are variables named in Ruby?
+- starting with a letter or underscore, conventionally all lowercase
+
+What are naming conventions for Ruby variables?
+- readable, eg `articles_written` vs `aw_counter`
+
+What scope does `$variable` have?
+- global
+
+What scope does `@@variable` have?
+- class
+
+What scope does `@variable` have?
+- instance
+
+What scope does `variable` have?
+- local, or block
 
