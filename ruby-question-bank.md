@@ -230,3 +230,90 @@ What's another way to remove every occurence of the value `5`?
 What's the difference in the two methods?
 - `#delete()` mutates `self`, whereas subtraction leaves `self` intact and simply returns a new array.
 
+What is an unordered, object-indexed collection of objects?
+- Hash
+
+For most cases, when should you use an Array?
+- when order matters
+
+For most cases, when should you use a Hash?
+- when label matters
+
+Square brackts `[]` are to an Array as ? is to a Hash.
+- `{}` angle brackets
+
+What is the new method that replaced the deprecated `#index()` as in `Hash.index()`?
+- `Hash#key()`
+
+What warning will be shown if you try to use `Hash.index()`?
+- `warning: Hash#index is deprecated; use Hash#key`
+
+Given the hash `hash = {a: 1, b: 2, c: 3}`, what will `hash.keys` return?
+- `[:a, :b, :c]`
+
+Given the hash `hash = {a: 1, b: 2, c: 3}`, what will `hash.values` return?
+- `[1, 2, 3]`
+
+Given the hash `hash = {}`, what will both `hash.keys` and `hash.values` return?
+- `[]`
+
+What data type is a label used to identify a piece of data?
+- Symbol
+
+What is the punctuation that denotes the use of a symbol?
+- colon `:`, as in `:symbol`
+
+What is the assignment operator?
+- `=`
+
+What operator checks for value equality?
+- `==`
+
+What operator checks for value and type equality?
+- `===`
+
+When method names end in a question mark, as in `#empty?`, they will typically return what data type?
+- Boolean
+
+What is the return value of `(1..10).class`?
+- Range
+
+What is an example of an inclusive range, 1, 2, ..., 10?
+- 1..10
+
+What is an exclusive range that returns 1, 2, ..., 10?
+- 1...11
+
+Given an inclusive range, 1 thru 10 (1..10), what method will return the first number?
+- (1..10).begin
+
+Given an inclusive range, 1 thru 10 (1..10), what method will return the last number?
+- (1..10).end
+
+Given an exclusive range, what will (1...10).end result in?
+- 10
+
+For range methods, begin is to first as end is to what?
+- last
+
+How can you convert a range to an array?
+- use the splat operator, `*`
+
+Given that `x = 1..3`, what does `[*x]` return?
+- `[1, 2 ,3]`
+
+Given that `alpha = "a".."c"`, what does `[*alpha]` return?
+- `["a", "b", "c"]`
+
+Are Ruby constants objects?
+- not true objects; act more like variables (pointers/representations but immutable). Are they frozen?
+
+How are constants different from variables?
+- First letter capitalized. Cannot start with underscore.
+
+True or false: Ruby constants are immutable.
+- false, assigning a new value will give warning, but will occur nonetheless
+
+How can you make a constant (or other variable) immutable?
+- `#freeze`
+
