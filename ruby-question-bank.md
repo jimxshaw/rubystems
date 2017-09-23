@@ -317,3 +317,76 @@ True or false: Ruby constants are immutable.
 How can you make a constant (or other variable) immutable?
 - `#freeze`
 
+## Control Structures
+
+True or false: `if` statements must be closed by the `end` keyword.
+- true
+
+How do you add additional condition expressions?
+- `elsif`
+
+Do you include the 'e' in your 'else if' statement?
+- no
+
+How can you rewrite `if true; true; end;`?
+- `true if true`
+
+How would you write `if true; true; else false; end` using the ternary operator?
+- `true ? true : false`
+
+What is the shorthand for `if !true; # do something; end`?
+- `unless true;`
+
+What is a switch statement called in Ruby?
+- Case
+
+What's a shorthand way of writing `if y; x = y; else x = z; end;`?
+- `x = y || z`
+
+What's a shorthand way of writing `unless x; x = y; end`?
+- `x ||= y`
+
+True or false: `loop do ... end` represents a loop structure.
+- true
+
+What loop keyword will terminate the entire loop when executed?
+- break
+
+What loop keyword will jump to the next loop?
+- next
+
+What loop keyword will repeat the same loop?
+- redo
+
+Which loop keyword will start the entire loop over?
+- retry
+
+True or false: you have to manually control your looping condition in a for loop.
+- true
+
+True or false: you have to manually control your looping condition in an until and while loop.
+- false; condition is built into the loop
+
+Do `while` and `until` loops begin with a `do` statement?
+- false
+
+What's the one-line while loop provided you've previously defined your starting counter?
+- `x += 2 while x < 100`
+
+What's the difference in a loop and an iterator?
+- breaking out of a loop requires a condition, whereas iterating is looping over a fixed set of data
+
+What's the simplest iterator?
+- `n.times {...}` where `n` is an integer
+
+What are similar iterators to the above?
+- `1.upto(5) {...}`
+- `5.downto(1) {...}`
+- `(1..5).each {...}`
+
+How would you specify the local variable to access elements you're looping over?
+- `(1..5).each {|n|...}`
+
+Given that `letters = ["a", "b", "c"]`, what is the equivalent for loop of `letters.each { |letter| ... }`?
+- `for letter in letters`
+
