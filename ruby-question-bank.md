@@ -257,6 +257,9 @@ Given the hash `hash = {a: 1, b: 2, c: 3}`, what will `hash.values` return?
 Given the hash `hash = {}`, what will both `hash.keys` and `hash.values` return?
 - `[]`
 
+Can you use integers as hash keys, but as pure symbols, eg `:1`?
+- false
+
 What data type is a label used to identify a piece of data?
 - Symbol
 
@@ -404,4 +407,105 @@ How would you use `do` and `end` in a single line to refactor `5.times { puts "H
 Given a block scope `{|i| puts i}`, is the block variable `i` accessible in the local scope?
 - false
 
+True or false: local variables are available inside block scope.
+- true
 
+If a local variable and block variable have the same name, which variable will be used in the block scope?
+- block
+
+What are the five most common methods used in blocks?
+- find (detect), merge, collect (map), sort, and inject
+
+What is the synonym for the method `find`?
+- `detect`
+
+What is the synonym for the method `find_all`?
+- `select`
+
+Given a range or array of objects, `find` or `detect` will return what value?
+- the first that satisfies block's criteria
+
+What is returned from `find` if it detects nothing?
+- `nil`
+
+The `find_all` method will return all values that satisfy the block's criteria and return what data type?
+- Array
+
+Even if `find_all` effectively `detect`s a single occurence, what will it return?
+- a single element in an array
+
+True or false: `find_all` will return `nil` if no occurence is found.
+- false, will return an empty array
+
+What is the synonym for `find_all`?
+- `select`
+
+What is the boolean equivalent to `find` and `detect`?
+- `any?`
+
+How can you test if every element in an array satisfies a block's conditions?
+- `all?`
+
+True or false: `delete_if` will only work on arrays.
+- true, will not work on a range (splat to array first)
+
+Given that `h1 = { a: 1 }` and `h2 = { a: 2 }`, what does `h1.merge(h2)` return?
+- `{ a: 2 }`
+
+Given that `h1 = { a: 1 }` and `h2 = { a: 2 }`, what does `h2.merge(h1)` return?
+- `{ a: 1 }`
+
+Using `#merge()` with a code block uses what three block variables?
+- key, old, new
+
+Does the `#merge()` method mutate the object it operates on?
+- false, use bang if you want that behavior
+
+True or false: it is impossible to return an array of different length using `map` or `collect`.
+- true
+
+Given `hash = { a: 1, b: 2 }`, how can you express `hash.keys` using `map`?
+- `hash.map {|k,v| k}`
+
+Even though `map` can used on a Range, Array, and Hash, what is its return value data type?
+- Array
+
+What is the comparison operator, sometimes called a "spaceship" operator?
+- `<=>`
+
+Given the comparison `a <=> b`, what is returned when `a < b`?
+- `-1`
+
+Given the comparison `a <=> b`, what is returned when `a == b`?
+- `0`
+
+Given the comparison `a <=> b`, what is returned when `a > b`?
+- `1`
+
+What is returned for the comparison `Numeric <=> Integer`?
+- `1`
+
+What is returned for the comparison `Integer <=> Numeric`?
+- `-1`
+
+What is returned for the comparison `Integer <=> Float`?
+- `nil`
+
+How can you further specify the sort details in an Array?
+- `array.sort { |a, b| a <=> b }`
+
+When sorting a Hash, what does the hash effectively become upon sort?
+- an array whose elements are two-element arrays, where arr[0] is the key and arr[1] is the value.
+- `[ [:a, 1], [:b, 2], [:c, 3] ]`
+
+Inject is an accumulator whose block variable is commonly called what?
+- memo
+
+What is the alias for `#inject`?
+- `#reduce`
+
+How can you set the starting value when using inject?
+-`array.inject(100) {|memo,n|memo+n}`
+
+You can compare all values in an array and return one of interest...
+- inject/reduce and memo
