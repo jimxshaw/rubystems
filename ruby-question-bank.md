@@ -390,3 +390,18 @@ How would you specify the local variable to access elements you're looping over?
 Given that `letters = ["a", "b", "c"]`, what is the equivalent for loop of `letters.each { |letter| ... }`?
 - `for letter in letters`
 
+## Code Block
+
+What keywords *commonly* define a multi-line code block?
+- `do` and `end`
+
+What symbols (word!) *commonly* define a single-line code block?
+- `{` and `}`
+
+How would you use `do` and `end` in a single line to refactor `5.times { puts "Hello" }`?
+- `5.times do; puts "Hello"; end`
+
+Given a block scope `{|i| puts i}`, is the block variable `i` accessible in the local scope?
+- false
+
+
