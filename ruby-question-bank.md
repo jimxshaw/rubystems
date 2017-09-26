@@ -609,3 +609,68 @@ If `def` is used to define methods, what word is used to define classes?
 How does naming differ between methods and classes?
 - methods are snake_case, and classes are PascalCase
 
+When you instantiate an object from a class, what is that object called?
+- instance
+
+What is a value that persists inside of an instance?
+- attribute
+
+Why can't instance variables be accessed without using a method?
+- Objects cannot call a variable; they can only call methods
+
+What is another word pair to define "getter/setter" methods?
+- reader/writer
+
+When running `product.shipping_address = "211 N Ervay"`, are you setting the variable `shipping_address` or calling the method `#shipping_address()`?
+- `#shipping_address()`
+
+What is the Ruby equivalent to declare a setter method:
+```ruby
+def set_shipping_address(shipping_address)
+  @shipping_address = shipping_address
+end
+```
+- `def shipping_address=(shipping_address)`
+
+What are the three most common Ruby attribute methods?
+- attr_`reader`, `writer`, and `accessor`
+
+What is Ruby's constructor function called?
+- initialize
+
+If you have `def initialize(a, b, c)`, how do you pass values (parameters) into the constructor as args?
+- `Class.new(a_value, b_value, c_value)`
+
+What is the most common class method built in?
+- `Class.new`
+
+How would you distinguish between an instance method `#instance` and a class method `.class`?
+- `def self.method_name`
+
+In a class definition, where would you typically find class methods?
+- above instance methods
+
+True or false: attribute reader, writer, and accessor *will* work on class variables.
+- false
+
+How would you define class readers and writers (getters and setters)?
+- `def self.name; @@name` and `def self.name=(name="classy"); @@name = name`
+
+The meaning of `self` in a method changes its meaning based on the method type. `self` is less dynamic in a class method (always referring to the class itself... just trickles the class name really). `self` in an instance method won't have meaning until the class is instantiated. Then `self` becomes the instance in the form of an object.
+- test for `self`
+
+What character indicates class inheritance?
+- `<`
+
+On which side of the `<` character does the class name go?
+- left, as in `class ClassName < InheritFromMe`
+
+True or false: a Ruby class can inherit from multiple parent classes.
+- false
+
+What's wrong with this class definition? `def SubClass < ParentClass`
+- `def` instead of `class`
+
+If `class Parent; def method; puts "parent"` and `class Child < Parent; def method; super` what does `super` do?
+- it calls `Parent#method`; `super` is a method call so it's not entirely akin to `self`
+
