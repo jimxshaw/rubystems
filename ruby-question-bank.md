@@ -742,3 +742,120 @@ end
 ```
 - now you can do `list = Class.new` and call `list.each` instead of `list.items.each`
 
+## Working with Files
+
+What is the common shorthand for input/output?
+- I/O
+
+What is the most basic command to get data into a Ruby program?
+- `gets`
+
+What will the final character returned be on `gets`?
+- `\n`
+
+What method can you call on a string to remove new line characters?
+- `#chomp`
+
+What is the path separator on Unix, Linux, and Mac?
+- `/` forward slash
+
+What is the path separator on Windows?
+- `\` back slash
+
+Can you use the Unix-like forward slash on Windows when working with Ruby?
+- true
+
+What should you use instead of the built-in path separators?
+- Ruby File class, `#join` method
+
+How would you use `File.join()` to access the file at the following path: `shared/lib/my_file.rb`?
+- `File.join('shared', 'lib', 'my_file.rb')`
+
+What Ruby variable gives you a relative path to a file's location?
+- `__FILE__`
+
+How many underscores come before and after this special variable?
+- two
+
+True or false: the word 'file' must be in all caps.
+- true
+
+What method in the File class when taking the `__FILE__` as an argument will give you the full path of the `__FILE__`?
+- `File.expand_path(__FILE__)`
+
+What method will return the directory given `__FILE__`?
+- `File.dirname(__FILE__)`
+
+How can you create a new file and object in write mode?
+- `file = File.new('my_new_file.rb', 'w')`
+
+How would you close this newly created file?
+- `file.close`
+
+What is the return value of `file.close`?
+- `nil`
+
+Why should you close your files?
+- prevent accidental writing and free up memory
+
+True or false: you don't have to explicitly close a file after using `File.open()`.
+- true, it closes automatically
+
+What file access mode will write from the start?
+- `w`
+
+What file access mode will allow you to append to the file contents?
+- `a`, append or "write from end"
+
+True or false: using the `r` read-only mode on a file that doesn't exist yet will fail.
+- true
+- `Errno::ENOENT: No such file or directory @ rb_sysopen - <filename.end>`
+
+Out of the six file access modes, which are the most commonly used four?
+- `r`, `w`, `a`, `r+`
+
+`file.puts "some text"` will write to its associated file, but won't show up until what happens?
+- `file.close`
+
+`file.print` and `file.write` do the same thing, except what?
+- `file.write` returns the character count of written characters
+
+To return the file object, what method can you call on file?
+- `file.<<()`
+
+How do you read a single line (from the pointer position) plus the line return?
+- `file.gets`
+
+How do you read a specific number of characters, eg 4?
+- `file.read(4)`
+
+Which iterator will loop thru each line in a file?
+- `#each_line`
+
+How do you determine where the pointer (cursor) is in a file?
+- `file.pos`
+
+How do you set the file's pointer position?
+- `file.pos = 9` or any integer
+
+How can you determine if the file pointer position is at the end of a file?
+- `file.eof?`
+
+How can you put the file pointer position at 0?
+- `file.rewind`
+
+How can you move the pointer by a specific amount, eg 4?
+`file.pos += 4`
+
+What is the internal counter that keeps track of the number of `gets` calls?
+- `#lineno`
+
+So while `file.pos = 0` sets the pointer to zero and has nothing to do with `lineno`, `file.rewind` will also set what?
+- `lineno` equal to zero
+
+True or false: you can't set pointer position past the last character.
+- false
+
+What is the octal notation for nil?
+- `\000`
+
