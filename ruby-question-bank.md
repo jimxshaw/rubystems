@@ -674,3 +674,71 @@ What's wrong with this class definition? `def SubClass < ParentClass`
 If `class Parent; def method; puts "parent"` and `class Child < Parent; def method; super` what does `super` do?
 - it calls `Parent#method`; `super` is a method call so it's not entirely akin to `self`
 
+## Modules
+
+What is a wrapper around your Ruby code called?
+- module
+
+True or false: modules cannot be instantiated.
+- true
+
+What is it called when a module is used in conjunction with a class?
+- mixin
+
+How do you employ modules to distinguish classes that have the same name?
+- namespacing
+
+Given the following namespaced class, how would you call the method?
+```ruby
+module Namespace
+  class Date
+    def new; end
+  end
+end
+```
+- `Namespace::Date.new`
+
+How would you include a module to be used in a class?
+- `include MyModule`
+
+How would you load code into an IRB sessions instead of pasting it in?
+- `load 'ruby_file.rb'`
+
+If theh load is successful, what should the return value be?
+- `true`
+
+If a class `include`s a module, what must you do first for `include` to work?
+- `load`
+
+What is the difference between `load` and `require`?
+- `load` will always return true; doesn't care if already loaded. `require` will check if already loaded
+
+What command will always bring in a source file every time it's called?
+- `load`
+
+What command will always bring in a source file only once?
+- `require`
+
+`include` only makes a module available. The loaded or required file may contain more than the module code. It could have thousands of modules, but `include` only grants the class access to the included module.
+- test that
+
+True or false: the Array class effectively includes a standard module called Enumerable.
+- true
+```ruby
+class Array < Object
+  include Enumerable
+end
+```
+
+If you want to require a file from your current working directory, but `require 'my_file.rb'` gives the error `LoadError: cannot load such file -- my_file.rb`, what should you try instead?
+- `./my_file.rb` or `require_relative 'my_file.rb'`
+
+How can you include the Enumerable module and change the behavior of each?
+```ruby
+include Enumerable
+def each
+  @items.each { |item| yield item }
+end
+```
+- now you can do `list = Class.new` and call `list.each` instead of `list.items.each`
+
