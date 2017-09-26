@@ -509,3 +509,94 @@ How can you set the starting value when using inject?
 
 You can compare all values in an array and return one of interest...
 - inject/reduce and memo
+
+## Methods
+
+What two three-letter words come before and after the method name when defining a method?
+- `def` and `end`
+
+What statement in IRB will grant you access to use the methods in a Ruby file, eg `my_ruby_file.rb`?
+- `require 'my_ruby_file.rb'`
+
+Given the following method definition, what is the scope of the `value` variable?
+```ruby
+def over_five?
+  value = 3
+  puts value > 5 ? 'Over 5' : 'Not over 5'
+end
+```
+- local
+
+True or false: moving the `value = 3` expression outside of the method will still work.
+- false, `value` would be local to the working space, and would not "bleed over" or "reach into" the method.
+
+Will the following method work?
+```ruby
+@value = 7
+def over_five?
+  puts @value > 5 ? 'Over 5' : 'Not over 5'
+end
+```
+- true
+
+What is a comma-separated list of values passed into a method called?
+- arguments
+
+What is the shorthand for arguments?
+- `args`
+
+Do methods that take arguments typically have parentheses?
+- true
+
+Do methods that take no arguments typically have parentheses?
+- false
+
+True or false: passing arguments to a method requires the use of parentheses.
+- false
+
+True or false: arguments passed into a method are considered block variables.
+- false, they become local to the method
+
+In the error `ArgumentError: wrong number of arguments (given 0, expected 1)`, what does the `given 0` part mean?
+- the method was called without passing in arguments
+
+If you call a method without passing an argument and don't get the ArgumentError, what happened?
+- the argument in the method definition has a default value set
+
+How do define a default value in an argument?
+- `arg="my_default_value"`
+
+What is the common sense default ordering of required and default arguments?
+- required are listed first, then default args
+
+True or false: running a `return` statement inside a method when called will exit the method.
+- true
+
+True or false: `return x, y` will produce the same result as `return [x, y]`
+- true
+
+How can you use double assignment on the following code?
+```ruby
+arr = [1, 2]
+one = arr[0]
+two = arr[1]
+```
+- `one, two = arr`
+
+How would you explicitly call the plus method on a number (syntactic vinegar)?
+- `8.+(2)`
+
+How would you call the shovel method vinegarly?
+- `arr.<<(4)`
+
+What is the name of the method used in `array[2]`?
+- square-bracket, square-bracket
+
+How would you explicitly call the sq-br-sq-br method?
+- `array.[](2)`
+
+How would you convert the following to syntactic vinegar? `array[2] = 'x'`
+- `array.[]=(2, 'x')`
+
+Why can't you do vinegar sugar on variable assignment, like so: `var.=(5)`?
+- methods can only be called on objects and variable only represent (or point to) objects
