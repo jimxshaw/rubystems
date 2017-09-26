@@ -600,3 +600,12 @@ How would you convert the following to syntactic vinegar? `array[2] = 'x'`
 
 Why can't you do vinegar sugar on variable assignment, like so: `var.=(5)`?
 - methods can only be called on objects and variable only represent (or point to) objects
+
+## Classes
+
+If `def` is used to define methods, what word is used to define classes?
+- `class`
+
+How does naming differ between methods and classes?
+- methods are snake_case, and classes are PascalCase
+
