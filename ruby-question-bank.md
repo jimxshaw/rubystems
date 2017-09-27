@@ -859,3 +859,66 @@ True or false: you can't set pointer position past the last character.
 What is the octal notation for nil?
 - `\000`
 
+What is the method called on File to rename a file?
+- `#rename()`
+
+`#rename` takes two arguments, the filename that exists and the new filename.
+- test this
+
+What does the `#rename` method return to indicate success?
+- `0`
+
+How many arguments does `File.delete()` take?
+- 1
+
+Which Ruby library do you need to require before running `File.copy()`?
+- `fileutils`
+
+What is the alias for `File.delete()`?
+- `File.unlink()`
+
+*assuming `file = 'some_file.txt'`*
+What method checks to see whether a file exists?
+- `File.exist?(file)`
+
+What method checks to see if your argument is a file?
+- `File.file?(file)`
+
+How can you check a files permissions?
+- `File.readable?(file)`
+- `File.writable?(file)`
+- `File.executable?(file)`
+
+How do you check a files byte size?
+- `File.size(file)`
+
+What File method will give you the last modified timestamp?
+- `File.mtime(file)`
+
+What File method will give you the last accessed (read or write) timestamp?
+- `File.atime(file)`
+
+What File method will give you the last changed timestamp?
+- `File.ctime(file)` gives you read/write and owner/permission changes
+
+True or false: `File.crtime(file)` will give you the file's created at timestamp.
+- false, but you can use `birthtime`
+
+How do you call an instance method to check `file`'s size?
+- `file.stat.size`
+
+The `File` class can be called to operate on a file, just like what class let's us operate on directories?
+- `Dir`
+
+How can you call `pwd` inside IRB?
+- `Dir.pwd`
+
+How can you specify an absolute path using the `Dir.chdir` command?
+- `Dir.chdir(File.join('', 'Users', 'kelton', 'Desktop')`
+
+What does the empty string in `File.join('', ...)` signify?
+- the root of the path
+
+How can you return an array of files and folders using the `Dir` class, similar to Bash's `ls` command?
+- `Dir.entries('.')`
+
