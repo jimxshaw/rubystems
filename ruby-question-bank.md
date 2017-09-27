@@ -922,3 +922,8 @@ What does the empty string in `File.join('', ...)` signify?
 How can you return an array of files and folders using the `Dir` class, similar to Bash's `ls` command?
 - `Dir.entries('.')`
 
+## etcetera
+
+What is the main executable file for a Ruby program called?
+- `init.rb`
+
