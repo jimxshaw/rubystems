@@ -927,3 +927,24 @@ How can you return an array of files and folders using the `Dir` class, similar 
 What is the main executable file for a Ruby program called?
 - `init.rb`
 
+Ruby's predefined variables have what scope?
+- global
+
+What is the synonym for `$LOAD_PATH`?
+- `$:`
+
+What command will abort and exit the program?
+- `exit!`
+
+What would `"Hello".ljust(10, "*")` return?
+- `"Hello*****"`
+
+What would `"Hello".rjust(10, "*")` return?
+- `"*****Hello"`
+
+What character is used if you don't specify your own, eg `"*"`?
+- a space
+
+What would `"Hello".center(30)` return?
+- `"            Hello             "`
+
