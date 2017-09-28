@@ -17,6 +17,9 @@ True or false: RSpec is part of the Ruby Standard Library.
 
 ## Installation
 
+What command will bring up the help menu for RSpec?
+- `rspec --help`
+
 What does `rspec --version` return?
 ```bash
 RSpec 3.6
@@ -48,3 +51,58 @@ How would you specify your local `.rspec` file in addition to the project's `.rs
 - `./.rspec-local`
 
 ## First Steps and Concepts
+
+From your working directory, what command will initialize RSpec?
+- `rspec --init`
+
+What is created from the RSpec initialization?
+- a `.rspec` file, and `spec` folder with `spec_helper.rb` therein
+
+What text is by default in the project's `.rspec` file?
+- `--require spec_helper`
+
+If you have a Car class defined in `car.rb`, what should your RSpec file be named?
+- `car_spec.rb`
+
+Inside your spec file, how do you associate the spec file with the file it's testing against?
+- `require '<some_file>'`
+
+If the keyword `def` defines a method in Ruby, what keyword defines a test in RSpec?
+- `describe`
+
+What is a synonym for the keyword `describe`?
+- `context`
+
+The `describe` definition can take how many arguments?
+- one
+
+What type of objects can `describe`'s arguments be?
+- `String` or `Class`
+
+True or false: using `describe` *always* takes a code block.
+- true
+
+If your top-level `describe` refers to the class, you can nest another `describe` block to refer to its method.
+- true
+
+Examples of behavior are written in the code block. What is the most common keyword to define an example?
+- `it`
+
+What is a synonym for the example keyword, `it`?
+- `specify`
+
+How many arguments does `it` take?
+- one
+
+What data type is `it`'s argument?
+- `String`
+
+True or false: the example for `it` is always enclosed in a code block.
+- true
+
+What is the format for a positive expectation?
+- `expect().to()`
+
+What is the format for a negative expectation?
+- `expect().not_to()`
+
