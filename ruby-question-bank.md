@@ -78,6 +78,12 @@ How can you open the Ruby documentation from the shell?
 What does `ri` stand for?
 - ruby information
 
+What is the Ruby way to refer to an instance method?
+- `#instance_method`
+
+What is the Ruby way to refer to a class method?
+- `.class_method`
+
 ## Ruby Object Types
 
 In Ruby, is a variable an object?
@@ -110,7 +116,7 @@ In Ruby 2.4.1, what class does `9.99.class` return?
 What does `10 / 3` return?
 - `3`
 
-What method will turn `12345.6789` to `12346`?
+What will turn `12345.6789` to `12346`?
 - `#round`
 
 What method will turn a number of type Float into an integer?
